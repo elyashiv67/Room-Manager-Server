@@ -4,7 +4,7 @@
   "description": "Room Manager Server",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,11 +24,13 @@
   },
   "homepage": "https://github.com/elyashiv67/Room-Manager-Server#readme",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
     "express": "^4.18.2",
-    "cors": "^2.8.5"
+    "mysql2": "^3.16.0",
+    "path": "^0.12.7"
   },
   "devDependencies": {
-    "nodemon": "^3.0.2"
+    "nodemon": "^3.1.11"
   }
 }
-
