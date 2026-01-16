@@ -10,7 +10,7 @@ async function getAll(){
 }
 
 async function getById(id) {
-    let sql = `SELECT user_name, user_pass, user_email, TZ, full_name, is_admin, fingerprint, department_id FROM users WHERE id = ?`;
+    let sql = `SELECT user_name, user_pass, user_email, TZ, full_name, is_admin, fingerprint, chip_id, department_id FROM users WHERE id = ?`;
     let [row] = await db.query(sql, [id]);
     return row[0];
     
