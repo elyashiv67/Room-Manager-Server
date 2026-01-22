@@ -52,6 +52,18 @@ async function updateRoom(req,res){
     }
 }
 
+
 async function addRoom(req,res){
+    try{
+        let room = await addRoom(req.body);
+        if(!room){
+            return res.status(400).json({message:'room not added'});
+        }
+        res.status(200).json({message:'room added', room:room + 'added successfully'});
+    }catch(err){
+        console.log(err);
+        res.status(500).json({message:'server error'});
+    }
+}
 
 module.exports = {getAllRooms, getRoom, deleteRoom, updateRoom, addRoom};
