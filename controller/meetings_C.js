@@ -49,14 +49,10 @@ async function deleteMeeting(req, res) {
 }
 async function createMeeting(req, res) {
     try {
-        let date_and_time = req.meeting.date_and_time;
-        let room_id = req.meeting.room_id;
-        let user_id = req.user_id;
-        //צריך להוסיף פונקציה במידלוור שבודקת את הנתונים ופוצחת אובייקט פגישה
-        if (!date_and_time || !room_id) {
+        let meeting = req.meeting;
+        if (!meeting) {
             return res.status(400).json({ message: 'Invalid meeting data' });
         }
-        let meeting = { date_and_time, room_id, user_id };
         let result = await addMeeting(meeting);
         res.status(201).json({ message: 'Meeting created', meetingId: result.insertId });
         

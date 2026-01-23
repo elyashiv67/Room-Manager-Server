@@ -16,7 +16,7 @@ async function getById(id) {
 async function deleteById(id) {
     let sql = `DELETE FROM meetings WHERE id = ?`;
     let [rows] = await db.query(sql, [id]);
-    return rows;
+    return rows.affectedRows;
 }
 
 async function addMeeting(meeting) {
