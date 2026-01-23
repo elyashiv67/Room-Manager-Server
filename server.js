@@ -20,6 +20,7 @@ app.use('/users',require('./routers/users_R'));
 app.use('/auth',require('./routers/auth_R'));
 app.use('/rooms',require('./routers/rooms_R'));
 app.use('/meetings',require('./routers/meetings_R'));
+app.use('/depatments',require('./routers/departments_R'));
 
 
 
