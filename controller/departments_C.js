@@ -41,14 +41,11 @@ async function deleteDepartment(req, res) {
 }
 async function createDeparment(req, res) {
     try {
-        let department_name = req.department.department_name;
-        let department_id = req.department.id;
-        //let user_id = req.user_id;
-        //צריך להוסיף פונקציה במידלוור שבודקת את הנתונים ופוצחת אובייקט פגישה
-        if (!department_name || !department_id) {
+        let department = { department_name,department_id};
+        
+        if (!department.department_name || !department.department_id) {
             return res.status(400).json({ message: 'Invalid department data' });
         }
-        let department = { department_name,department_id};
         let result = await addDepartment(department);
         res.status(201).json({ message: 'Department created', department_id: result.insertId });
     } catch (err) {

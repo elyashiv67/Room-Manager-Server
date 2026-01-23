@@ -6,16 +6,18 @@ function ValidValues(req,res,next){
     if(!department_name || !department_id){
         return res.status(400).json({message:'all fields are required'});
     }
-    req.department.department_name = department_name;
-    req.department.id = department_id;
-    req.user_id = user_id;
+    req.department = {
+        department_name: department_name,
+        department_id: department_id,
+        user_id:user_id
+    }
     next();
 }
 function ValidId(req,res,next){
     try {
         let id = Number(req.params.id);
         if(isNaN(id) || id <= 0)
-            res.status(400).json('id not valid');
+           return res.status(400).json('id not valid');
         
         req.id = id;
         next();
