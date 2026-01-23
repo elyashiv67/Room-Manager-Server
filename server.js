@@ -18,5 +18,8 @@ router.get('/', (req, res) => {
 });
 app.use('/users',require('./routers/users_R'));
 app.use('/auth',require('./routers/auth_R'));
+app.use('/rooms',require('./routers/rooms_R'));
+
+
 
 app.listen(port,()=>{console.log(`http://${api}:${port}`);})
